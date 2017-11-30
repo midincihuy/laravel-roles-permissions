@@ -25,4 +25,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('users', 'Admin\UsersController');
     Route::post('users_mass_destroy', ['uses' => 'Admin\UsersController@massDestroy', 'as' => 'users.mass_destroy']);
 
+
+    Route::get('/blog','PostController@index')->name('blog');
+    // Route::view('/blog/create', 'post.create')->middleware('auth')->name('create');
+    Route::get('/blog/create', 'PostController@create')->middleware('auth')->name('create');
+    Route::get('/blog/{post}', 'PostController@show')->name('show');
+    Route::post('/post', 'PostController@store')->name('store');
+
 });

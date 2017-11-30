@@ -11,7 +11,31 @@
                     <span class="title">@lang('global.app_dashboard')</span>
                 </a>
             </li>
-            
+            @can ('blog_post')
+              <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-file"></i>
+                  <span class="title">Post</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="{{ route('admin.blog') }}">
+                      <i class="fa fa-list"></i>
+                      List
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ route('admin.create') }}">
+                      <i class="fa fa-file"></i>
+                      Create
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            @endcan
             @can('users_manage')
             <li class="treeview">
                 <a href="#">
